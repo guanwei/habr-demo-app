@@ -116,7 +116,7 @@ spec:
             }
             steps {
                 container('docker') {
-                    sh "docker push ${registryIp}/demo/app:${revision}"
+                    sh "docker push guanwei/habr-demo-app:${revision}"
                 }
             }
         }
