@@ -34,6 +34,7 @@ spec:
     volumeMounts:
     - name: repository
       mountPath: /root/.m2/repository
+      subPath: maven
   - name: docker
     image: docker:18.09.2
     command: ["cat"]
