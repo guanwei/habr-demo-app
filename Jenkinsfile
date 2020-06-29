@@ -17,14 +17,14 @@ pipeline {
 
     agent {
         kubernetes {
-            label 'build-service-pod'
+            label 'jenkins-agent'
             defaultContainer 'jnlp'
             yaml """
 apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    job: build-service
+    job: jenkins-agent
 spec:
   containers:
   - name: maven
