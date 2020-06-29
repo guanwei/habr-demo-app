@@ -1,12 +1,12 @@
 properties([
-        parameters(
-                [
-                        booleanParam(
-                                name: 'DEPLOY_BRANCH_TO_TST',
-                                defaultValue: false
-                        )
-                ]
-        )
+    parameters(
+        [
+            booleanParam(
+                name: 'DEPLOY_BRANCH_TO_TST',
+                defaultValue: false
+            )
+        ]
+    )
 ])
 
 def branch
@@ -32,6 +32,8 @@ spec:
     command: ["cat"]
     tty: true
     volumeMounts:
+    - name: maven-settings
+      mountPath: /root/.m2
     - name: repository
       mountPath: /root/.m2/repository
       subPath: maven
@@ -43,6 +45,9 @@ spec:
     - name: docker-sock
       mountPath: /var/run/docker.sock
   volumes:
+  - name: maven-settings
+    configMap:
+      name: jenkins-maven-settings
   - name: repository
     persistentVolumeClaim:
       claimName: repository
