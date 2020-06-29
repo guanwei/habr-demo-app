@@ -34,9 +34,8 @@ spec:
     volumeMounts:
     - name: maven-settings
       mountPath: /root/.m2
-    - name: repository
+    - name: maven-repository
       mountPath: /root/.m2/repository
-      subPath: maven
   - name: docker
     image: docker:18.09.2
     command: ["cat"]
@@ -48,9 +47,9 @@ spec:
   - name: maven-settings
     configMap:
       name: jenkins-maven-settings
-  - name: repository
+  - name: maven-repository
     persistentVolumeClaim:
-      claimName: repository
+      claimName: jenkins-maven-repository
   - name: docker-sock
     hostPath:
       path: /var/run/docker.sock
