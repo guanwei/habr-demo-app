@@ -103,8 +103,7 @@ spec:
                 }
                 container('docker') {
                     script {
-                        registryIp = sh(script: 'getent hosts registry.kube-system | awk \'{ print $1 ; exit }\'', returnStdout: true).trim()
-                        sh "docker build . -t ${registryIp}/demo/app:${revision} --build-arg REVISION=${revision}"
+                        sh "docker build . -t guanwei/habr-demo-app:${revision} --build-arg REVISION=${revision}"
                     }
                 }
             }
