@@ -6,10 +6,9 @@ metadata:
     app: {{ .Chart.Name }}
 spec:
   rules:
-  - host: {{ .Release.Namespace }}-app.192.168.99.100.nip.io
     http:
       paths:
-      - backend:
-          serviceName: {{ .Chart.Name }}
-          servicePort: 80
-        path: /
+        - backend:
+            serviceName: {{ .Chart.Name }}
+            servicePort: 80
+          path: /
