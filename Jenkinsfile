@@ -108,18 +108,18 @@ spec:
                 }
             }
         }
-        stage ('publish artifact') {
-            when {
-                expression {
-                    branch == 'master' || params.DEPLOY_BRANCH_TO_TST
-                }
-            }
-            steps {
-                container('docker') {
-                    sh "docker push guanwei/habr-demo-app:${revision}"
-                }
-            }
-        }
+        // stage ('publish artifact') {
+        //     when {
+        //         expression {
+        //             branch == 'master' || params.DEPLOY_BRANCH_TO_TST
+        //         }
+        //     }
+        //     steps {
+        //         container('docker') {
+        //             sh "docker push guanwei/habr-demo-app:${revision}"
+        //         }
+        //     }
+        // }
         stage ('deploy to env') {
             when {
                 expression {
