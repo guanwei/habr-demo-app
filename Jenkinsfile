@@ -128,9 +128,9 @@ spec:
             }
             steps {
                 build job: 'habr-demo/job/habr-demo-deploy', parameters: [
-                        [$class: 'StringParameterValue', name: 'GIT_REPO', value: 'habr-demo-app'],
-                        [$class: 'StringParameterValue', name: 'VERSION', value: revision],
-                        [$class: 'StringParameterValue', name: 'ENV', value: branch == 'master' ? 'staging' : 'test']
+                    [$class: 'StringParameterValue', name: 'GIT_REPO', value: 'habr-demo-app'],
+                    [$class: 'StringParameterValue', name: 'VERSION', value: revision],
+                    [$class: 'StringParameterValue', name: 'ENV', value: branch == 'master' ? 'staging' : 'test']
                 ], wait: false
             }
         }
