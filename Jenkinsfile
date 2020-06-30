@@ -24,7 +24,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   labels:
-    job: jenkins-agent
+    job: habr-demo-build
 spec:
   containers:
   - name: maven
